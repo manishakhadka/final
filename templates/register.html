@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+      <section id="login-wrap">
+        <div class="container">
+          <h1 class="section-heading-wrap">Register</h1>
+          <hr />
+          <div class="row">
+            <div class="col-md-3">
+              <div class="main-tab-bar">
+                <div class="tab-bar1">
+                  <a class="tab-bar2" href="login.html">Login</a>
+                </div>
+                <!-- <div class="tab-bar1">
+                  <a class="tab-bar2-1" href="reset-pw.html">Reset Password</a>
+                </div>
+                <div class="tab-bar1">
+                  <a class="tab-bar2-2 active" href="register.html"
+                    >Register Account</a
+                  >
+                </div> -->
+              </div>
+            </div>
+            <div class="col-md-9" style="padding: 25px 10px">
+              <div class="notification">
+                Please be aware that all fields need to be filled in correctly.</br>
+                Bold labels = required
+              </div>
+              <div class="main-tab-bar">
+                <ul class="nav nav-tabs text-center">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tab01"
+                      >Personal Account</a
+                    >
+                  
+                </ul>
+              </div>
+
+              <!-- Tab panes -->
+              {% from "_formhelpers.html" import render_field %}
+              <form method="POST" action="{{ url_for('users.register') }}">
+                {{ form.csrf_token }}
+                <div class="tab-content">
+                  <div id="tab01" class="tab-pane active">
+                    <div class="table-content">
+                      <div class="register-form" id="register-form">
+                        <div class="input-title">Title</div>
+                        <input
+                          type="text"
+                          name="title"
+                          placeholder="Mr. or Miss."
+                        />
+
+                        <!-- <div class="input-title">First Name</div>
+                        <input
+                          type="text"
+                          name="fname"
+                          placeholder="eg. John"
+                        /> -->
+                        {{ render_field(form.first_name) }}
+
+                        <div class="input-title">Middle Name</div>
+                        <input
+                          type="text"
+                          name="middle_name"
+                          placeholder="eg. Benjamin"
+                        />
+
+                        <!-- <div class="input-title">Last Name</div>
+                        <input
+                          type="text"
+                          name="lname"
+                          placeholder="eg. Michel"
+                        /> -->
+                        {{ render_field(form.last_name) }}
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="input-title">Zone</div>
+                            <input
+                              type="text"
+                              name="zone"
+                              placeholder="eg. Bagmati"
+                            />
+                          </div>
+                          <div class="col-md-4">
+                            <div class="input-title">Street</div>
+                            <input
+                              type="text"
+                              name="street"
+                              placeholder="eg. New Baneshwor"
+                            />
+                          </div>
+                          <div class="col-md-4">
+                            <div class="input-title">Postal Code</div>
+                            <input
+                              type="text"
+                              name="postal"
+                              placeholder="eg. 44600"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="input-title">Phone No.</div>
+                            <input
+                              type="text"
+                              name="phone"
+                              placeholder="eg. 98XXXXXXXX"
+                            />
+                          </div>
+                          <div class="col-md-8">
+                            <!-- <div class="input-title">Email</div>
+                            <input
+                              type="email"
+                              name="email"
+                              placeholder="eg. example@gmail.com"
+                            /> -->
+                            {{ render_field(form.email) }}
+                          </div>
+                        </div>
+
+                        
+
+                        <!-- <div class="input-title">Password</div>
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                        /> -->
+                        {{ render_field(form.password) }}
+
+                        <!-- <div class="input-title">Retype Password</div>
+                        <input
+                          type="password"
+                          name="re-password"
+                          placeholder="Password"
+                        /> -->
+                        {{ render_field(form.confirm) }}
+
+                        <!-- <div class="input-title">Newslatter & Offers:</div>
+                        <input type="checkbox" name="btn-check" />
+                        <span
+                          >Yes please. I would like to receive news, offers and
+                          information by email. <a href="#">Learn More</a></span
+                        > -->
+
+                        <div style="text-align: right">
+                          <button class="btn-register">Continue ></button>
+                        </div>
+
+                        <div
+                          style="
+                            text-align: center;
+                            font-size: 13px;
+                            margin: 10px 0;
+                          "
+                        >
+                          By clicking "Continue", you agree to the terms and
+                          conditions for shopping with TasteTales
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    </div>
+
+    <a id="back-to-top" href="#" class="btn back-to-top" role="button"
+      ><i class="fa fa-chevron-up"></i
+    ></a>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/popper.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/owl.carousel.js') }}"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 50) {
+            $("#back-to-top").fadeIn();
+          } else {
+            $("#back-to-top").fadeOut();
+          }
+        });
+        // scroll body to 0px on click
+        $("#back-to-top").click(function () {
+          $("body,html").animate(
+            {
+              scrollTop: 0,
+            },
+            400
+          );
+          return false;
+        });
+      });
+    </script>
+    <script>
+      $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+        e.target; // newly activated tab
+        e.relatedTarget; // previous active tab
+      });
+    </script>
+  </body>
+</html>
+{% endblock %}

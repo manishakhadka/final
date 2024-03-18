@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title %}Contact{% endblock %} {% block
+content %}
+<section id="contact-wrap">
+  <div class="container">
+    <h1 class="section-heading-wrap">Contact</h1>
+    <hr />
+    <div class="row">
+      
+      <div class="col-md-7">
+        <div class="location">
+          <iframe
+            src="/static/images/location.png"
+            width="100%"
+            height="390"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <h3 class="section-heading-wrap">Our Branch Offices</h3>
+        <div class="branch-shop">
+          <div><i class="fa fa-map-marker-alt"> </i>Darbar Marg</div>
+          <div><i class="fa fa-phone-volume"> </i>+01-4257277</div>
+          <div><i class="fa fa-envelope"> </i>info@TasteTalescenter.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+    e.target; // newly activated tab
+    e.relatedTarget; // previous active tab
+  });
+</script>
+
+{% endblock %}
